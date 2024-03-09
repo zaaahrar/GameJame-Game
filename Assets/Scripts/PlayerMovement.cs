@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private bool _isGround;
+    [SerializeField] private bool _isKnight;
     [SerializeField] private LayerMask _groundMask;
 
     private const float RayDistance = 1f;

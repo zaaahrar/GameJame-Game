@@ -3,9 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerInput : MonoBehaviour
 {
-    private const string AxisHorizontal = "Horizontal";
+    [SerializeField] private SwitchPlayer _switchPlayer;
 
+    private const string AxisHorizontal = "Horizontal";
     private const KeyCode KeyJump = KeyCode.Space;
+    private const KeyCode KeyWorldChanges = KeyCode.F;
 
     private float _horizontalDirection;
     private PlayerMovement _playerMovement;
@@ -20,5 +22,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyJump))
             _playerMovement.TryJump();
+        else if (Input.GetKeyDown(KeyWorldChanges))
+            _switchPlayer.Switch();
     }
 }
