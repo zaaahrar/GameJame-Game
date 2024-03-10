@@ -2,6 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent (typeof(PlayerInput))]
+[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -14,20 +15,38 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private PlayerInput _playerInput;
+    private Animator _animator;
+
+    private Vector3 _turnLeft = new Vector3(-1, 1, 0);
+    private Vector3 _turnRight = new Vector3(1, 1, 0);
+
+    private int _isMovementHash = Animator.StringToHash("isRun");
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _playerInput = GetComponent<PlayerInput>();
     }
 
     private void FixedUpdate()
     {
-        Move();
+        MoveHorizontally(_playerInput.HorizontalDirection);
         CheckGround();
     }
 
-    private void Move() => _rigidbody2D.velocity = new Vector2(_playerInput.HorizontalDirection * _speed, _rigidbody2D.velocity.y);
+    private void MoveHorizontally(float horizontalDirection)
+    {
+        _animator.SetBool(_isMovementHash, true);
+        _rigidbody2D.velocity = new Vector2(_playerInput.HorizontalDirection * _speed, _rigidbody2D.velocity.y);
+
+        if (horizontalDirection > 0)
+            transform.localScale = _turnLeft;
+        else if (horizontalDirection < 0)
+            transform.localScale = _turnRight;
+        else
+            _animator.SetBool(_isMovementHash, false);
+    } 
 
     private void CheckGround()
     {

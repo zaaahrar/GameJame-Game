@@ -21,8 +21,12 @@ public class PlayerInput : MonoBehaviour
         _horizontalDirection = Input.GetAxisRaw(AxisHorizontal);
 
         if (Input.GetKeyDown(KeyJump))
+        {
             _playerMovement.TryJump();
+        }
         else if (Input.GetKeyDown(KeyWorldChanges))
+        {
             _switchPlayer.Switch();
+        }
     }
 }
