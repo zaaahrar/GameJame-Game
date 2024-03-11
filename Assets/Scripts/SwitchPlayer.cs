@@ -9,6 +9,7 @@ public class SwitchPlayer : MonoBehaviour
     [SerializeField] private EffectTransition _effectTransition;
     [SerializeField] private float _delayTime;
     [SerializeField] private bool _isShift = true;
+    [SerializeField] private StartBackgroundMusic _backgroundMusic;
 
     private Player _activePlayer;
     private Player _inactivePlayer;
@@ -32,11 +33,13 @@ public class SwitchPlayer : MonoBehaviour
             {
                 _effectTransition.UseEffect(Color.red);
                 SetActivePlayers(_dewil, _knight);
+                _backgroundMusic.StartMusicDewil();
             }
             else
             {
                 _effectTransition.UseEffect(Color.white);
                 SetActivePlayers(_knight, _dewil);
+                _backgroundMusic.StartMusicHero();
             }
 
             _indenationY *= -1;
@@ -45,6 +48,10 @@ public class SwitchPlayer : MonoBehaviour
             StartCoroutine(ShiftDelay());
         }    
     }
+
+    public void ProhibitShift() => _isShift = false;
+
+    public void AllowShift() => _isShift = true;
 
     private void UpdatePlayerPosition(Player activePlayer, Player inactivePlayer)
     {

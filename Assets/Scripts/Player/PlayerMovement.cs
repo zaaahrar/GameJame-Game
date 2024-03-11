@@ -8,8 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private bool _isGround;
-    [SerializeField] private bool _isKnight;
     [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private ParticleSystem _dustEffect;
+    [Header("Sound")]
+    [SerializeField] private AudioSource _audioSourceRun;
+    [SerializeField] private AudioSource _audioSourceJump;
 
     private const float RayDistance = 1f;
 
@@ -41,11 +44,25 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody2D.velocity = new Vector2(_playerInput.HorizontalDirection * _speed, _rigidbody2D.velocity.y);
 
         if (horizontalDirection > 0)
+        {
+            if (_audioSourceRun.isPlaying == false && _isGround)
+                _audioSourceRun.Play();
+
             transform.localScale = _turnLeft;
+        }
+
         else if (horizontalDirection < 0)
+        {
+            if (_audioSourceRun.isPlaying == false && _isGround)
+                _audioSourceRun.Play();
+
             transform.localScale = _turnRight;
+        }
         else
+        {
             _animator.SetBool(_isMovementHash, false);
+            _audioSourceRun.Stop();
+        }
     } 
 
     private void CheckGround()
@@ -57,6 +74,11 @@ public class PlayerMovement : MonoBehaviour
     public void TryJump()
     {
         if (_isGround)
+        {
+            _dustEffect.Play();
+            _audioSourceRun.Stop();
+            _audioSourceJump.Play();
             _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        }
     }
 }
