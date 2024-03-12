@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private PlayerTriggerChecking _trigger;
 
     public bool CanOpenPortal => _canOpenPortal;
+    public int CurrentScene => _currentScene;
 
     private void Awake()
     {

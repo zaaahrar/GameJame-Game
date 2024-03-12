@@ -6628,8 +6628,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2572440831
-  m_fontColor: {r: 1, g: 0.33018857, b: 0.33018857, a: 0.6}
+    rgba: 3627760631
+  m_fontColor: {r: 0.96862745, g: 0.23137255, b: 0.23137255, a: 0.84705883}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9767,7 +9767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1767248721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11715,6 +11715,10 @@ PrefabInstance:
       propertyPath: _switchPlayer
       value: 
       objectReference: {fileID: 126856924}
+    - target: {fileID: 8473745782380036717, guid: ccc033e9e02c44c449315b29b10af56c, type: 3}
+      propertyPath: _currentScene
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11802,6 +11806,10 @@ PrefabInstance:
       propertyPath: _transition
       value: 
       objectReference: {fileID: 1794194895}
+    - target: {fileID: 8796637330292908374, guid: ed815e02ba10049488eb33c23d17fc3e, type: 3}
+      propertyPath: _currentScene
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8854213265223270472, guid: ed815e02ba10049488eb33c23d17fc3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.99
