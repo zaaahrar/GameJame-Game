@@ -22,6 +22,6 @@ public class ClickButton : MonoBehaviour
 
     public void CloseAuthorInfo()
     {
-        _panel.SetActive(true);
+        _panel.SetActive(false);
     }
 }
