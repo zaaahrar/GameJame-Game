@@ -23,6 +23,11 @@ public class Player : MonoBehaviour
         _trigger = GetComponent<PlayerTriggerChecking>();
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(OpenPortalDelay());
+    }
+
     public void OpenPortal()
     {
         _canOpenPortal = false;
