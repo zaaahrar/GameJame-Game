@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e8258e7234e3a264f84244ac3ca92903, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panelTransitionScene: {fileID: 0}
+  _portal: {fileID: 0}
 --- !u!114 &9083671800638776881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +285,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canOpenPortal: 1
   _delayTime: 2
+  _currentScene: 0
+  _startPoint: {fileID: 0}
+  _transition: {fileID: 0}
 --- !u!50 &4820973319862141294
 Rigidbody2D:
   serializedVersion: 4
@@ -411,7 +415,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: db2f48be261ba614b8062497a619af6b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0

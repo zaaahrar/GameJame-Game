@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSourceHero: {fileID: 7170812469963094444}
   _audioSourceDewil: {fileID: 8947788900670728999}
-  _maxValue: 0.1
+  _maxValue: 0.5
 --- !u!1 &9011166499004358221
 GameObject:
   m_ObjectHideFlags: 0
